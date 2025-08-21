@@ -16,7 +16,7 @@ awk '{if(($2+$3)/2-1000<0)print $1"\t"0"\t"int(($2+$3)/2)+1000; else print $1"\t
 bedtools intersect -a mm10_promoter_2k_05k_pcg.bed -b 5k_loop_anchor.bed -wo |sort|uniq > 5k_loop_anchor_promoter.bed
 bedtools intersect -a 5k_loop_anchor.bed -b GM_H3K27ac_1_2.bed -wo |cut -f 1-3|sort|uniq > enhancer_5k_loop_anchor.bed
 bedtools intersect -a 5k_loop_anchor.bed -b mm10_promoter_2k_05k_pcg.bed -wo |cut -f 1-3|sort|uniq > promoter_5k_loop_anchor.bed
-python3 loop_G4_type.py 5k_merged_loops.bedpe G4_5k_loop_anchor.bed 5k_loop_anchor_promoter.bed promoter_5k_loop_anchor.bed enhancer_5k_loop_anchor.bed 5k_loop.bed
+python3 loop_G4_h3k27me3.py 5k_merged_loops.bedpe G4_5k_loop_anchor.bed G4_5k_loop_anchor.bed 5k_loop_anchor_promoter.bed promoter_5k_loop_anchor.bed enhancer_5k_loop_anchor.bed 5k_loop.bed
 ##########################
 ######################R
 library(ggplot2)

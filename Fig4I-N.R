@@ -105,7 +105,7 @@ bedtools intersect -a mm10_promoter_2k_05k_pcg.bed -b G4_window_DNSO_vs_PDS_diff
 bedtools intersect -a G4_window_DNSO_vs_PDS_diff_anchor.bed -b ASC_H3K27ac.bed -wo |cut -f 1-3|sort|uniq > enhancer_5k_loop_anchor.bed
 bedtools intersect -a G4_window_DNSO_vs_PDS_diff_anchor.bed -b mm10_promoter_2k_05k_pcg.bed -wo |cut -f 1-3|sort|uniq > promoter_5k_loop_anchor.bed
 
-python3 loop_G4_type.py G4_window_DNSO_vs_PDS_diff.bed G4_5k_loop_anchor.bed 5k_loop_anchor_promoter.bed promoter_5k_loop_anchor.bed enhancer_5k_loop_anchor.bed G4_window_DNSO_vs_PDS_diff_loop.bed
+python3 loop_G4_type.py G4_window_DNSO_vs_PDS_diff.bed G4_5k_loop_anchor.bed G4_5k_loop_anchor.bed 5k_loop_anchor_promoter.bed promoter_5k_loop_anchor.bed enhancer_5k_loop_anchor.bed G4_window_DNSO_vs_PDS_diff_loop.bed
 
 grep Down G4_window_DNSO_vs_PDS_diff.bed|awk '{print $1"\t"$2"\t"$6}' > G4_window_DNSO_vs_PDS_down_interaction.bed
 ############################
